@@ -5,7 +5,7 @@ import Utility.Normal;
 import Utility.Point3D;
 import Utility.Ray;
 
-public class Plane {
+public class Plane extends GeometricObject{
     Point3D point;
     Normal normal;
     Color color;
