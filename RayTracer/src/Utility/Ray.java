@@ -8,4 +8,9 @@ public class Ray {
         this.origin = new Point3D(origin);
         this.direction = new Vector3D(direction);
     }
+
+    public Ray(){
+        origin = new Point3D();
+        direction = new Vector3D();
+    }
 }

@@ -6,6 +6,10 @@ import Utility.Point3D;
 import Utility.Ray;
 import Utility.Vector3D;
 import geometry.Sphere;
+import projection.Orthographic;
+import projection.Projection;
+import sampling.RegularSample;
+import sampling.Sampler;
 import scene.World;
 
 import javax.imageio.ImageIO;
@@ -19,6 +23,8 @@ public class Driver {
     public static World world;
     public static Image image;
     public static Tracer tracer;
+    public static Sampler sampler;
+    public static Projection projection;
 
     public static void main(String[] args) throws IOException {
         long start = System.nanoTime();
@@ -26,8 +32,8 @@ public class Driver {
         world = new World(1600,900,1.0);
         image = new Image("Image.png");
         tracer = new Tracer();
-
-        Sphere sphere = new Sphere(new Point3D(0.0,0.0,0.0), 60.0, new Color(1.0F,0.0F,0.0F));
+        sampler = new RegularSample(8);
+        projection = new Orthographic();
 
         for(int y = 0; y < world.viewPlane.height; y++){
             for(int x = 0; x < world.viewPlane.width; x++){
