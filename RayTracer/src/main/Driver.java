@@ -7,6 +7,7 @@ import Utility.Ray;
 import Utility.Vector3D;
 import geometry.Sphere;
 import projection.Orthographic;
+import projection.Perspective;
 import projection.Projection;
 import sampling.RegularSample;
 import sampling.Sampler;
@@ -33,7 +34,7 @@ public class Driver {
         image = new Image("Image.png");
         tracer = new Tracer();
         sampler = new RegularSample(8);
-        projection = new Orthographic();
+        projection = new Perspective(new Point3D(-200.0, 200.0, 600), new Point3D(0.0, 0.0, 0.0), 30.0);
 
         for(int y = 0; y < world.viewPlane.height; y++){
             for(int x = 0; x < world.viewPlane.width; x++){
